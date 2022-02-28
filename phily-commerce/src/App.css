@@ -2,3 +2,8 @@ body {
   font-family: "Indie Flower";
   padding: 20px 60px;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
