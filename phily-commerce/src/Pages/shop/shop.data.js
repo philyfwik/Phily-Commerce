@@ -2,60 +2,60 @@ export const SHOP_DATA = [
   {
     id: 1,
     title: 'Flowers',
-    routeName: 'hats',
+    routeName: 'flowers',
     items: [
       {
         id: 1,
-        name: 'Brown Brim',
-        imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
+        name: 'Roses',
+        imageUrl: 'https://images.squarespace-cdn.com/content/v1/5de2ad1424b1dd71d88f59da/1610994735175-MZ8SV6DKOXOGA61U4H86/IMG_4803.jpg?format=1000w',
         price: 25
       },
       {
         id: 2,
-        name: 'Blue Beanie',
-        imageUrl: 'https://i.ibb.co/ypkgK0X/blue-beanie.png',
+        name: 'Gerbara',
+        imageUrl: 'https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1605462320/vendor/3934/catalog/product/2/0/20200528074859_file_5ed015abe44d6_5ed016a5d0af4.jpg',
         price: 18
       },
       {
         id: 3,
-        name: 'Brown Cowboy',
-        imageUrl: 'https://i.ibb.co/QdJwgmp/brown-cowboy.png',
+        name: 'Tulip',
+        imageUrl: 'https://i1.fnp.com/images/pr/uae/l/v20171129164151/10-purple-tulip-arrangement_1.jpg',
         price: 35
       },
       {
         id: 4,
-        name: 'Grey Brim',
-        imageUrl: 'https://i.ibb.co/RjBLWxB/grey-brim.png',
+        name: 'Lily',
+        imageUrl: 'https://cdn1.harryanddavid.com/wcsstore/HarryAndDavid/images/catalog/20_27234_30J_01ex.jpg',
         price: 25
       },
       {
         id: 5,
-        name: 'Green Beanie',
-        imageUrl: 'https://i.ibb.co/YTjW3vF/green-beanie.png',
+        name: 'Calla lily',
+        imageUrl: 'https://www.folimg.com/kernel/imageload/?table=fol3_catalog_images&key1=LX74_large_feature&key2=LX74_feature&key3=404_large_feature',
         price: 18
       },
       {
         id: 6,
-        name: 'Palm Tree Cap',
-        imageUrl: 'https://i.ibb.co/rKBDvJX/palm-tree-cap.png',
+        name: 'Orchid',
+        imageUrl: 'https://cloudinary-a.akamaihd.net/ufn/image/upload/1593070227687_5.jpg',
         price: 14
       },
       {
         id: 7,
-        name: 'Red Beanie',
-        imageUrl: 'https://i.ibb.co/bLB646Z/red-beanie.png',
+        name: 'Iris',
+        imageUrl: 'https://i.etsystatic.com/21961241/r/il/8cff49/3067914747/il_340x270.3067914747_nrze.jpg',
         price: 18
       },
       {
         id: 8,
-        name: 'Wolf Cap',
-        imageUrl: 'https://i.ibb.co/1f2nWMM/wolf-cap.png',
+        name: 'Carnation',
+        imageUrl: 'https://flowergiftkorea.com/wp-content/uploads/2017/05/Mixed-Carnation-Bouquet-Flower-Gift-Korea-Delivery.jpg',
         price: 14
       },
       {
         id: 9,
-        name: 'Blue Snapback',
-        imageUrl: 'https://i.ibb.co/X2VJP2W/blue-snapback.png',
+        name: 'Sunflower',
+        imageUrl: 'https://i.pinimg.com/originals/4b/8b/1e/4b8b1ea9e20786e0ecd0cca51d8bae75.jpg',
         price: 16
       }
     ]
@@ -63,12 +63,12 @@ export const SHOP_DATA = [
   {
     id: 2,
     title: 'Cakes',
-    routeName: 'sneakers',
+    routeName: 'cakes',
     items: [
       {
         id: 1,
-        name: 'Adidas NMD',
-        imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
+        name: 'Birthday',
+        imageUrl: 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/digger-cake_0-c4711f0.jpg?quality=90&resize=440,400',
         price: 220
       },
       {
@@ -118,12 +118,12 @@ export const SHOP_DATA = [
   {
     id: 3,
     title: 'Gift Baskets',
-    routeName: 'jackets',
+    routeName: 'gift-baskets',
     items: [
       {
         id: 1,
-        name: 'Black Jean Shearling',
-        imageUrl: 'https://i.ibb.co/XzcwL5s/black-shearling.png',
+        name: 'Charcuterie',
+        imageUrl: 'https://cdn2.harryanddavid.com/wcsstore/HarryAndDavid/images/catalog/22_90864_30H_39_034x.jpg?height=456&width=418&sharpen=a0.5,r1,t1&quality=80&auto=webp&optimize={medium}',
         price: 125
       },
       {
