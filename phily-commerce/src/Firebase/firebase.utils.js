@@ -2,7 +2,8 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 //import { initializeApp } from "firebase/app";
 //import { getFirestore } from "firebase/firestore";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+//import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import "firebase/compat/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA9giipmJpJ4Lg-TIpNVU8XcuvKBACo5pU",
@@ -46,11 +47,11 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 firebase.initializeApp(firebaseConfig);
 
-export const auth = getAuth();
+export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-const provider = new GoogleAuthProvider();
+const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
-export const signInWithGoogle = () => signInWithPopup(auth, provider);
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 export default firebase;
