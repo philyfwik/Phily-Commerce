@@ -21,7 +21,7 @@ class App extends React.Component {
 
   unsubscribeFromAuth = null;
 
-  componentDidMount() {
+  /*componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
@@ -43,18 +43,17 @@ class App extends React.Component {
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
-  }
+  }*/
 
   render(){
     return (
-      <div>
-        <Header currentUser={this.state.currentUser} />
-        <Routes>
-          <Route exact path='/' element={<HomePage />} />
+      <Routes>
+        <Route path='/' element={<Header currentUser={this.state.currentUser} />}>
+          <Route exact index element={<HomePage />} />
           <Route path='/shop' element={<ShopPage />} />
           <Route path='/signin' element={<SignInAndSignUpPage />} />
-        </Routes>
-      </div>
+        </Route>
+      </Routes>
     );
   }
 }

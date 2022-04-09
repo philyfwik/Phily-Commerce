@@ -7,7 +7,15 @@ import { auth, createUserProfileDocument } from "../../Firebase/firebase.utils";
 
 import "./sign-up.styles.css";
 
-class SignUp extends React.Component {
+const SignUp = () => {
+  return (
+    <div>
+      <h1>Sign Up Page</h1>
+    </div>
+  );
+}
+
+/*class SignUp extends React.Component {
   constructor(props) {
     super(props)
   
@@ -91,6 +99,6 @@ class SignUp extends React.Component {
       </div>
     );
   }
-}
+}*/
 
 export default SignUp;
