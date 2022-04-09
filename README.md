@@ -10,4 +10,7 @@ This is my e-commerce project for small gifting businesses to sell their product
 - React Hooks : UseEffect & UseState
 - React Router
 - React Context
-- 
+
+- Firebase Auth & AuthListener
+- Firebase GoogleAuthProvider
+- Firebase Sign Up, Sign In & Sign Out
