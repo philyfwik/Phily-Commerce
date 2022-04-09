@@ -24,6 +24,12 @@ const SignIn = () => {
     setFormFields(defaultFormFields);
   };
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormFields({ ...formFields, [name]:value });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -47,15 +53,12 @@ const SignIn = () => {
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormFields({ ...formFields, [name]:value });
-  };
-
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+
+    setCurrentUser(user);
+
+    createUserDocumentFromAuth(user);
   }
 
   return (
