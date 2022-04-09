@@ -3,12 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
 
-import Header from './Components/header/header.component';
-import SignInAndSignUpPage from './Pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+import NavBar from './Components/navbar/navbar.component';
+import Authentication from './Pages/authentication/authentication.component';
 import HomePage from './Pages/homepage/homepage.component';
 import ShopPage from './Pages/shop/shop.component';
 
-import { auth, createUserProfileDocument } from './Firebase/firebase.utils';
+//import { auth, createUserProfileDocument } from './Firebase/firebase.utils';
 
 class App extends React.Component {
   constructor(props) {
@@ -48,10 +48,10 @@ class App extends React.Component {
   render(){
     return (
       <Routes>
-        <Route path='/' element={<Header currentUser={this.state.currentUser} />}>
+        <Route path='/' element={<NavBar currentUser={this.state.currentUser} />}>
           <Route exact index element={<HomePage />} />
           <Route path='/shop' element={<ShopPage />} />
-          <Route path='/signin' element={<SignInAndSignUpPage />} />
+          <Route path='/auth' element={<Authentication />} />
         </Route>
       </Routes>
     );

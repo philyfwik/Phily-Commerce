@@ -5,11 +5,11 @@ import { auth } from "../../Firebase/firebase.utils";
 
 import { ReactComponent as CrwnLogo } from "../../Assets/crown.svg";
 
-import "./header.styles.css";
+import "./navbar.styles.css";
 
-const Header = ({ currentUser }) => (
+const NavBar = ({ currentUser }) => (
   <Fragment>
-    <div className="header">
+    <div className="navbar">
       <Link className="logo-container" to="/">
         <CrwnLogo className="logo" />
       </Link>
@@ -24,7 +24,7 @@ const Header = ({ currentUser }) => (
           currentUser ? 
           (<div className="option" onClick={() => auth.signOut()}>SIGN OUT</div>)
           :
-          (<Link className="option" to="/signin">SIGN IN</Link>)
+          (<Link className="option" to="/auth">SIGN IN</Link>)
         }
       </div>
     </div>
@@ -32,4 +32,4 @@ const Header = ({ currentUser }) => (
   </Fragment>
 );
 
-export default Header;
+export default NavBar;

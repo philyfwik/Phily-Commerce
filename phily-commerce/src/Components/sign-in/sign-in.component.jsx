@@ -1,24 +1,86 @@
-import React from "react";
+import { useState } from "react";
+
+import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from "../../Firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 
-import { signInWithGooglePopup, createUserDocumentFromAuth } from "../../Firebase/firebase.utils";
-
 import "./sign-in.styles.css";
 
+const defaultFormFields = {
+  email: '',
+  password: ''
+}
+
 const SignIn = () => {
-  const logGoogleUser = async () => {
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { email, password } = formFields;
+
+  console.log(formFields);
+
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await signInAuthUserWithEmailAndPassword(email, password);
+      console.log(response);
+
+      resetFormFields();
+    } catch(error) {
+      switch(error.code) {
+        case 'auth/wrong-password':
+          alert('incorrect password for email');
+          break;
+        case 'auth/user-not-found':
+          alert('user does not exist');
+          break;
+        default:
+          console.log(error);
+      }
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormFields({ ...formFields, [name]:value });
+  };
+
+  const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
+    await createUserDocumentFromAuth(user);
   }
 
   return (
-    <div>
-      <h1>Sign In Page</h1>
-      <button onClick={logGoogleUser}>
-        Sign In with Google Popup
-      </button>
+    <div className="sign-in">
+      <h2>Already have an account?</h2>
+      <span>sign in with your email and password</span>
+      <form onSubmit={handleSubmit}>
+        <FormInput 
+          type='email'
+          name='email'
+          value={email}
+          onChange={handleChange}
+          label='Email'
+          required
+        />
+        <FormInput 
+          type='password'
+          name='password'
+          value={password}
+          onChange={handleChange}
+          label='Password'
+          required
+        />
+      <div className="buttons-container">
+        <CustomButton type='submit'>Sign In</CustomButton>
+        <CustomButton onClick={signInWithGoogle} buttonType='google'>Sign In with Google</CustomButton>
+      </div>
+      </form>
     </div>
   );
 }

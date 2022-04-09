@@ -4,11 +4,11 @@
   flex-direction: column;
 }
 
-.sign-in .title {
+.sign-in h2 {
   margin: 10px 0;
 }
 
-.sign-in .buttons {
+.sign-in .buttons-container {
   display: flex;
   justify-content: space-between;
 }
