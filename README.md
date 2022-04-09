@@ -7,6 +7,7 @@ This is my e-commerce project for small gifting businesses to sell their product
 - Back End: Google Firebase
 
 ### Special Features
+- React Hooks : UseEffect & UseState
 - React Router
 - React Context
 - 
