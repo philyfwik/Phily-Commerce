@@ -1,8 +1,6 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 
-import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from "../../Firebase/firebase.utils";
-
-import { UserContext } from "../../Contexts/user.context";
+import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from "../../Firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
@@ -18,8 +16,6 @@ const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  const { setCurrentUser } = useContext(UserContext);
-
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
@@ -34,9 +30,7 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(email, password);
-      
-      setCurrentUser(user);
+      await signInAuthUserWithEmailAndPassword(email, password);
 
       resetFormFields();
     } catch(error) {
@@ -54,11 +48,7 @@ const SignIn = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-
-    setCurrentUser(user);
-
-    createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   }
 
   return (
@@ -84,7 +74,7 @@ const SignIn = () => {
         />
       <div className="buttons-container">
         <CustomButton type='submit'>Sign In</CustomButton>
-        <CustomButton onClick={signInWithGoogle} buttonType='google'>Sign In with Google</CustomButton>
+        <CustomButton onClick={signInWithGoogle} type='button' buttonType='google'>Sign In with Google</CustomButton>
       </div>
       </form>
     </div>

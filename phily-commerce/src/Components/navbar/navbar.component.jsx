@@ -9,12 +9,7 @@ import { ReactComponent as CrwnLogo } from "../../Assets/crown.svg";
 import "./navbar.styles.css";
 
 const NavBar = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-  
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  }
+  const { currentUser } = useContext(UserContext);
 
   return (
     <Fragment>
@@ -31,7 +26,7 @@ const NavBar = () => {
           </Link>
           {
             currentUser ? (
-              <span className="option" onClick={signOutHandler}>
+              <span className="option" onClick={signOutUser}>
                 SIGN OUT
               </span>
             ) : (
