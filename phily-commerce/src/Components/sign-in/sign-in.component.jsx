@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from "../../Firebase/firebase.utils";
+
+import { UserContext } from "../../Contexts/user.context";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
@@ -16,7 +18,7 @@ const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  console.log(formFields);
+  const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -26,8 +28,9 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(email, password);
-      console.log(response);
+      const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+      
+      setCurrentUser(user);
 
       resetFormFields();
     } catch(error) {
@@ -84,63 +87,5 @@ const SignIn = () => {
     </div>
   );
 }
-
-/*class SignIn extends React.Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-      email: '',
-      password: ''
-    }
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-
-    this.setState({ email:'', password:'' })
-  }
-
-  handleChange = event => {
-    const { value, name } = event.target;
-
-    this.setState({ [name]: value })
-  }
-
-  render() {
-    return(
-      <div className="sign-in">
-        <h2>I already have an account</h2>
-        <span>Sign in with your email and password</span>
-
-        <form onSubmit={this.handleSubmit}>
-          <FormInput 
-            name="email" 
-            type="email" 
-            value={this.state.email} 
-            handleChange={this.handleChange}
-            label="email"
-            required 
-          />
-          <FormInput 
-            name="password" 
-            type="password" 
-            value={this.state.password} 
-            handleChange={this.handleChange}
-            label="password"
-            required 
-          />
-          <div className="buttons">
-            <CustomButton type="submit">Sign In</CustomButton>
-            <CustomButton onClick={signInWithGooglePopup} isGoogleSignIn>
-              {' '}
-              Sign In with Google{' '}
-            </CustomButton>
-          </div>
-        </form>
-      </div>
-    );
-  }
-}*/
 
 export default SignIn;
